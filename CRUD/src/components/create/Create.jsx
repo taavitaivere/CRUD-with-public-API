@@ -8,7 +8,7 @@ export default function Create() {
     const [fName, setFName] = useState('');
     const [lName, setLName] = useState('');
     const [email, setEmail] = useState('');
-    const [ avatar ] = useState('');
+    const [avatar] = useState('');
     const onImageChange = (e) => {
         const [file] = e.target.files;
         setImg(Url.createObjectURL(file));
