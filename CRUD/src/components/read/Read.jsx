@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
-import {Table,} from "semantic-ui-react";
+import {Table, Button} from "semantic-ui-react";
 import axios from "axios";
-
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Read() {
+    const navigate = useNavigate();
     const [data, setData] = useState([]);
     useEffect(() => {
         axios.get('https://63274caeba4a9c475334aec1.mockapi.io/crud')
@@ -11,8 +13,12 @@ export default function Read() {
                 setData(res.data)
             })
     })
+
     return (
         <div className="table">
+            <Link to={`/create`}>
+                <Button onClick={() => navigate('/create')}>Create</Button>
+            </Link>
             <Table celled>
                 <Table.Header>
                     <Table.Row>
